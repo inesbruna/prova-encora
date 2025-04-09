@@ -4,19 +4,15 @@
 
 // Coleta valores do usuário e armazena em um set
 void getConjuntos(std::set<int>& A) {
-    int qntd, nmr;
+    int nmr;
 
-    std::cout << "Digite a quantidade de números que deseja inserir: ";
+    std::cout << "Digite os números (digite -999 para parar):\n";
 
-    while (!(std::cin >> qntd) || qntd <= 0) {
-        std::cout << "O número deve ser positivo: ";
-        std::cin.clear();
-        std::cin.ignore(10000, '\n');
-    }
-
-    while (A.size() < static_cast<size_t>(qntd)) {
-        std::cout << "Digite o " << (A.size() + 1) << "º número: ";
+    while (true) {
+        std::cout << "Número #" << (A.size() + 1) << ": ";
         std::cin >> nmr;
+
+        if (nmr == -999) break;
 
         if (A.count(nmr)) {
             std::cout << "Este número é repetido, digite outro número.\n";
